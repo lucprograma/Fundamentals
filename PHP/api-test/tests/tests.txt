@@ -1,0 +1,19 @@
+PHPUnit
+Comandos Básicos
+./vendor/bin/phpunit --filter testCreateReturnsInteger tests/services/CategoryServiceTest.php
+./vendor/bin/phpunit  tests/services/CategoryServiceTest.php
+./vendor/bin/phpunit --debug tests/services/CategoryServiceTest.php
+
+Extensión
+https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-test-explorer
+
+PHPStan
+./vendor/bin/phpstan analyse
+
+Scripts
+composer phpstan
+composer test
+
+
+
+

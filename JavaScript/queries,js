@@ -1,0 +1,60 @@
+
+use tasks;
+
+db.createCollection("categories")
+
+db.categories.insertOne({"name": "DBA"})
+db.categories.insertOne({"name": "BackEnd"})
+db.categories.insertOne({"name": "Front End"})
+
+db.categories.insertMany([{"name": "DevOps"},{"name": "UI/UX"},{"name": "Functional Analyst"}])
+
+db.createCollection("tasks")
+
+db.tasks.insertMany([{
+  "description": "Definición de requerimientos",
+  "startDate": new Date("2023-06-01T03:00:00Z"),
+  "duration": 20,
+  "priority": 9,
+  "categories": [
+    { "_id_category": ObjectId("6826778a0e47cf9371fff17b") },
+    { "_id_category": ObjectId("6826778a0e47cf9371fff17c") }
+    ]
+},{
+  "description": "Definición de requerimientos",
+  "startDate": new Date("2023-06-01T03:00:00Z"),
+  "duration": 2,
+  "priority": 5,
+  "categories": [
+    { "_id_category": ObjectId("6826778a0e47cf9371fff17b") },
+    { "_id_category": ObjectId("6826778a0e47cf9371fff17c") }
+    ]
+},{
+  "description": "Definición de requerimientos",
+  "startDate": new Date("2023-06-01T03:00:00Z"),
+  "duration": 15,
+  "priority": 4,
+  "categories": [
+    { "_id_category": ObjectId("6826778a0e47cf9371fff17b") },
+    { "_id_category": ObjectId("6826778a0e47cf9371fff17c") }
+    ]
+},{
+  "description": "Definición de requerimientos",
+  "startDate": new Date("2023-06-01T03:00:00Z"),
+  "duration": 10,
+  "priority": 3,
+  "categories": [
+    { "_id_category": ObjectId("6826778a0e47cf9371fff17b") },
+    { "_id_category": ObjectId("6826778a0e47cf9371fff17c") }
+    ]
+}])
+
+db.categories.find({$or: [{"name": {$eq: "Front End"}},{"name": {$eq: "BackEnd"}}]})
+db.tasks.find({"priority": {$gt: 5}})
+db.tasks.find({$and: [{"duration": {$gt: 10}}, {"duration": {$lt: 20}}]})
+db.taks.find({$or: [{"duration": {$lt: 30}},{"priority": {$lt: 5}}]})
+db.tasks.find({"description": "desarrollo"})
+db.tasks.deleteOne()
+db.tasks.find()
+
+

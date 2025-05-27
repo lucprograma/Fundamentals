@@ -1,0 +1,33 @@
+
+    1) Generar las pruebas unitarias sobre las siguientes clases:
+        a)services/ProductService.php
+        b)controllers/MovementController.php
+    2)Selecciona 3 advertencias del análisis de PHPStan y explica:
+        a)Qué tipo de error es (tipado, acceso a propiedades, etc.).
+        b)Por qué se produce.
+    3)PHP es un lenguaje dinámico, pero PHPStan recomienda el uso explícito de tipos. ¿Qué ventajas y desventajas ves en aplicar tipado estricto en PHP? ¿Crees que mejora la calidad del software?
+    4)PHPStan reporta el siguiente error: Cannot access property $state on mixed. Explica por qué ocurre este error en el método changeCategoryState() del controlador y reescribe el fragmento involucrado aplicando buenas prácticas de tipado o validación.
+    5) Agrega los tipos de parámetros y retorno en las clases del namespace Services. Comenta cómo ayuda esto a evitar errores a futuro.
+## Respuestas
+    2)
+        1)Property Controllers\ProductController::$productService has no type specified.                     
+            🪪 missingType.property:
+            Este error es de tipado y ocurre porque falta especificar el tipo de la propiedad $ProductService
+            dentro de ProductController.
+        2)Class Services\ProductService referenced with incorrect case: services\ProductService.  
+            🪪 class.nameCase:
+            Este es un error de caso, en el cual estoy llamando incorrectamente a un namespace. Esto se debe,
+            a que el nombre de la clase empieza con mayuscula "Services".
+        3)Method CategoryServiceTest::testGetAllReturnsArray() has no return type specified.         
+            🪪 missingType.return:
+            Este es un error de tipado, este se da porque, no se especifica el tipo de retorno de la función.
+    3)
+    Ventajas del tipado estatico:
+        - Reduce los errores en el tiempo de ejecución. Ya que, hace mas predecible el tipo de dato a recibir.
+        - Hace que los errores sean mas faciles de detectar y depurar.
+    Desventajas:
+        - Puede generar duplicación de codigo, al tener que declarar variable nuevamente o separar funciones que podrian tener diferentes tipos de retorno.
+        - El diseño debe ser planeado con mas detalle al principio, siendo que un fuerte tipado no admite duck-typing y las declaraciones implicitas son escasas. Es decir, que para simplificar las dependencias y el acloplamiento, se debe pensar mas el diseño.
+    Sin dudas, el fuerte tipado mejora la calidad del software y puede ayudar a evitar errores cuando se usa correctamente. por otro lado, en algunos casos puede ser mejor opción en terminos de diseño un tipado dinamico para utilizar duck-typing o polimorfismo implicito por ejemplo cuando el lenguaje lo permite.
+    4) El error ocurre porqué quiere acceder a una propiedad de una clase pero desconoce el tipo de variable, ya que el metodo json_decode devuelve mixed. para solucionar esto se indica con el parametro 'true' que devuelva un array asociativo y se valida que sea un array.
+    5) Especificar los tipos ayuda evitar errores, ya que las herramientas como Intellisense detectan errores de tipado advirtiendo al desarrollador e incluso evitando ejecutar el codigo; es decir si se desea hacer una llamada a una función y por parametro se quiere pasar un valor distinto al esperado, esto sera detectable. Esto a su vez, hace que sea mas facil comprender funciones y objetos mostrando claramente que valores esperan y devuelven. Ademas, promueven la correcta validación de los datos, asegurandose no se envien valores nulos cuando no esta permitido.

@@ -1,0 +1,25 @@
+{
+    "require": {
+        "slim/slim": "4.*",
+        "slim/psr7": "^1.5",
+        "respect/validation": "^2.2",
+        "nyholm/psr7": "^1.6"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^12",
+        "phpstan/phpstan": "^2.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Services\\": "src/services/",
+            "Controllers\\": "src/controllers/",
+            "Validators\\": "src/validators/",
+            "Config\\": "config/",
+            "Routes\\": "src/routes/"
+        }
+    },
+    "scripts": {
+        "phpstan": "./vendor/bin/phpstan analyse",
+        "test": "phpunit"
+    }
+}

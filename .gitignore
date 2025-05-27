@@ -1,18 +1,5 @@
-PHP/api_test/vendor/
-# Ignore the vendor directory in the api_test directory
-PHP/api_test/vendor/*
-# Ignore all files in the vendor directory in the api_test directory
-PHP/api_test/.env
-# Ignore the .env file in the api_test directory
-PHP/api_test/.env.example
-# Ignore the .env.example file in the api_test directory
-PHP/api_test/storage/
-# Ignore the storage directory in the api_test directory
-PHP/api_test/storage/*
-# Ignore all files in the storage directory in the api_test directory
-PHP/api_test/storage/logs/
-# Ignore the logs directory in the storage directory of the api_test directory
-PHP/api_test/storage/logs/*
-# Ignore all files in the logs directory in the storage directory of the api_test directory
-PHP/api_test/storage/framework/cache/
-.venv
+.venv/
+#Ignore vendor directory
+PHP/api-test/vendor/
+# Ignore all files in the vendor directory
+PHP/api-test/vendor/*
